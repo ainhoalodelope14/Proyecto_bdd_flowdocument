@@ -10,7 +10,7 @@ Este repositorio contiene dos proyectos de ejemplo en C#:
 ## Proyecto B – Bases de Datos
 - Carpeta: `Proyecto2ev_B_AinhoaLL`
 - Contiene ejemplos de **trabajo con bases de datos** (SQL, scripts y conexiones).
-- Permite practicar operaciones básicas de creación, lectura y modificación de datos.
+- Permite practicar operaciones básicas de creación, lectura, modificación de datos y eliminación de estos. (CRUD)
 
 ## Cómo usar
 1. Abrir el proyecto correspondiente en Visual Studio.
