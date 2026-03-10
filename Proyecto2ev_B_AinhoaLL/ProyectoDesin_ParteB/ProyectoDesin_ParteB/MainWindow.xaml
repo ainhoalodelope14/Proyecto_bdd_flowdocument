@@ -1,0 +1,109 @@
+﻿<Window x:Class="ProyectoDesin_ParteB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoDesin_ParteB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800">
+    <!-- Comandos custom -->
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MainWindow.InsertarCommand" CanExecute="InsertarCommand_CanExecute" Executed="InsertarCommand_Executed" />
+        <CommandBinding Command="local:MainWindow.ModificarCommand" CanExecute="ModificarCommand_CanExecute" Executed="ModificarCommand_Executed" />
+        <CommandBinding Command="local:MainWindow.BorrarCommand" CanExecute="BorrarCommand_CanExecute" Executed="BorrarCommand_Executed" />
+    </Window.CommandBindings>
+    <Window.Resources>
+        <!-- Estilos para las etiquetas y dispradores para los botones -->
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="Blue" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="IsPressed" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="LightBlue" />
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="Foreground" Value="DarkBlue" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CustomButtonStyleToolBar" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="IsPressed" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="LightBlue" />
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="DarkBlue" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <!-- Dockpanel para los botones de la barra de herramientas -->
+        <DockPanel>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button Name="btnAnterior" Click="btnAnterior_Click" Style="{StaticResource CustomButtonStyleToolBar}">Anterior</Button>
+                    <Button Name="btnSiguiente" Click="btnSiguiente_Click"  Style="{StaticResource CustomButtonStyleToolBar}">Siguiente</Button>
+                    <Button Command="local:MainWindow.InsertarCommand"  Content="Insertar" Style="{StaticResource CustomButtonStyleToolBar}"/>
+                    <Button Command="local:MainWindow.ModificarCommand"  Content="Modificar" Style="{StaticResource CustomButtonStyleToolBar}"/>
+                    <Button Command="local:MainWindow.BorrarCommand"  Content="Borrar" Style="{StaticResource CustomButtonStyleToolBar}"/>
+                </ToolBar>
+            </ToolBarTray>
+        </DockPanel>
+
+        <!-- StackPanel para los botones de abajo -->
+        <StackPanel Margin="284,470,51,2">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Anterior" Click="btnAnterior_Click" Margin="5" Style="{StaticResource CustomButtonStyle}"/>
+                <Button Content="Siguiente" Click="btnSiguiente_Click" Margin="5" Style="{StaticResource CustomButtonStyle}"/>
+                <Button Command="local:MainWindow.InsertarCommand" Content="Insertar" Margin="5" Style="{StaticResource CustomButtonStyle}"/>
+                <Button Command="local:MainWindow.ModificarCommand"  Content="Modificar" Margin="5" Style="{StaticResource CustomButtonStyle}"/>
+                <Button Command="local:MainWindow.BorrarCommand"  Content="Borrar" Margin="5" Style="{StaticResource CustomButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- DataGrid para cargar la base de datos -->
+        <DataGrid Name="dgvProductos" IsReadOnly="True" ItemsSource="{Binding Path=Productos}" Margin="0,35,0,349"/>
+
+        <!-- StackPanel para las etiquetas que cargaran los elementos seleccionados del dataGrid -->
+        <StackPanel Orientation="Vertical" Margin="284,190,27,2" DataContext="{Binding ElementName=dgvProductos, Path=SelectedItem}">
+            <Label Content="ID: " FontFamily="Cascadia Code"/>
+            <TextBlock Text="{Binding Id}"/>
+
+            <Label Content="Nombre: " FontFamily="Cascadia Code"/>
+            <TextBlock Text="{Binding Nombre}" />
+
+            <Label Content="Descripción: " FontFamily="Cascadia Code"/>
+            <TextBlock Text="{Binding Descripción}" Height="40" TextWrapping="Wrap"/>
+
+            <Label Content="Precio: " FontFamily="Cascadia Code"/>
+            <TextBlock Text="{Binding Precio}" />
+
+            <Label Content="Stock: " FontFamily="Cascadia Code"/>
+            <TextBlock Text="{Binding Stock}" />
+
+            <Label Content="Categoría: " FontFamily="Cascadia Code"/>
+            <TextBlock Text="{Binding Categoría}" Height="16" />
+        </StackPanel>
+        <!-- Imagen -->
+        <Image Source="{Binding ElementName=dgvProductos, Path=SelectedItem.Imagen}" Margin="69,182,581,102"></Image>
+    </Grid>
+</Window>

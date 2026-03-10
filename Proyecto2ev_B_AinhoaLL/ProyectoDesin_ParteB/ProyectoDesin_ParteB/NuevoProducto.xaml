@@ -1,0 +1,97 @@
+﻿<Window x:Class="ProyectoDesin_ParteB.NuevoProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoDesin_ParteB"
+        mc:Ignorable="d"
+        Title="NuevoProducto" Height="450" Width="500">
+    <Window.Resources>
+        <!-- Animación para botones -->
+        <Style x:Key="AnimatedButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="DodgerBlue"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="border" 
+                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                        To="RoyalBlue" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="FontSize"
+                                                         To="18" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetName="border" 
+                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                        To="DodgerBlue" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="FontSize"
+                                                         To="16" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!-- Grid -->
+    <Grid VerticalAlignment="Top" Height="450">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Etiquetas y textbox correspondientes -->
+        <Label Grid.Row="0" Content="ID"/>
+        <TextBox Name="txtId" Grid.Row="1" Text="{Binding ID}"/>
+
+        <Label Grid.Row="2" Content="Nombre"/>
+        <TextBox Name="txtNombre" Grid.Row="3" Text="{Binding Nombre}"/>
+
+        <Label Grid.Row="4" Content="Descripción"/>
+        <TextBox Name="txtDescripcion" Grid.Row="5" Text="{Binding Descripcion}"/>
+
+        <Label Grid.Row="6" Content="Precio"/>
+        <TextBox Name="txtPrecio" Grid.Row="7" Text="{Binding Precio}"/>
+
+        <Label Grid.Row="8" Content="Stock"/>
+        <TextBox Name="txtStock" Grid.Row="9" Text="{Binding Stock}"/>
+
+        <Label Grid.Row="10" Content="Categoría"/>
+        <TextBox Name="txtCategoria" Grid.Row="11" Text="{Binding Categoria}" Margin="0,0,0,69"/>
+
+        <Label Grid.Row="11" Content="Ruta de Imagen" Margin="0,21,0,40"/>
+        <TextBox Name="txtImagen" Grid.Row="11" Text="{Binding Imagen}" Margin="0,43,0,26"/>
+
+        <!-- Botones correspondientes animados -->
+        <Button Grid.Row="12" Name="btnCancelar" Content="Cancelar" Click="Cancelar_Click" Margin="82,24,299,52"
+                Style="{StaticResource AnimatedButtonStyle}"/>
+        <Button Name="btnAceptar" Content="Aceptar" Click="Aceptar_Click" Margin="282,24,99,52" Grid.Row="12"
+                Style="{StaticResource AnimatedButtonStyle}"/>
+    </Grid>
+</Window>

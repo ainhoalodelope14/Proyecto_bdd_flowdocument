@@ -1,0 +1,211 @@
+﻿<Window x:Class="ProyectoDesin_ParteA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoDesin_ParteA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="668" Width="1038">
+    <!-- Disparadores y estilos para el formulario -->
+    <Window.Resources>
+        <Style x:Key="CustomButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="IsPressed" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="LightBlue" />
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="Foreground" Value="DarkBlue" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CustomButtonStyle2" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="IsPressed" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="LightBlue" />
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="Foreground" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CustomButtonStyle3" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="IsPressed" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="LightBlue" />
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="Foreground" Value="Green" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <!-- Titulo con disparador -->
+        <Border Background="LightGray" Margin="5,0,10,585">
+            <TextBlock Text="Videojuegos hoy en día!" FontWeight="Bold" FontSize="30" TextAlignment="Center" Margin="0,0,0,-22">
+            <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Black" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Violet" />
+                                <Setter Property="TextDecorations" Value="Underline" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Border>
+
+        <!-- Botones que nos darán la información de cada tema -->
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,485" HorizontalAlignment="Center" Width="457">
+            <Button x:Name="btnAccion" Content="Acción" Click="btnAccion_Click"  Margin="1" Width="150" Height="30"
+                    Style="{StaticResource CustomButtonStyle1}">
+
+            </Button>
+            <Button Name="btnAventura" Content="Aventura" Margin="1" Click="btnAventura_Click" Width="150" Height="30"
+                    Style="{StaticResource CustomButtonStyle2}"/>
+            <Button x:Name="btnRPG" Content="RPG" Click="btnRPG_Click" Margin="1" Width="150" Height="30"
+                    Style="{StaticResource CustomButtonStyle3}"/>
+        </StackPanel>
+
+        <!-- Botones para abrir, guardar, limpiar e imprimir el contenido del flow document -->
+        <StackPanel Orientation="Horizontal" Margin="5,602,569,0">
+            <Button x:Name="btnAbrir" Click="btnAbrir_Click" Content="Abrir" Margin="3" Width="50" Height="20"/>
+            <Button x:Name="btnGuardar" Click="btnGuardar_Click" Content="Guardar" Margin="2" Width="50" Height="20"/>
+            <Button x:Name="btnLimpiar" Click="bntLimpiar_Click" Content="Limpiar"  Margin="2" Width="50" Height="20"/>
+            <Button x:Name="btnImprimir" Click="btnImprimir_Click" Content="Imprimir" Margin="2" Width="50" Height="20"/>
+        </StackPanel>
+
+        <!-- Flow document reader donde se guardara el documento flow document -->
+        <FlowDocumentReader x:Name="FlowDocumentReader" Margin="5,123,5,46">
+            <FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                <FlowDocument.Resources>
+                    <Style x:Key="Estilo1" TargetType="Span">
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                    <Style x:Key="Estilo2" TargetType="Paragraph">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                    <Style x:Key="Estilo3" TargetType="Span">
+                        <Setter Property="Foreground" Value="Blue"/>
+                    </Style>
+                    <Style x:Key="Estilo4" TargetType="Span">
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                    <Style x:Key="Estilo5" TargetType="Span">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </FlowDocument.Resources>
+                <Paragraph Style="{StaticResource Estilo2}">
+                    <Span Style="{StaticResource Estilo1}">
+                        <Span Style="{StaticResource Estilo3}">
+                            Videojuegos de Acción
+                        </Span>
+                    </Span>
+                    <LineBreak></LineBreak>
+                    <Span Style="{StaticResource Estilo4}">¿Sobre que tratan?</Span>
+                </Paragraph>
+                <Paragraph>Los juegos de acción se centran en la velocidad, los reflejos rápidos y la toma de decisiones rápida. Suelen implicar combates intensos, movimiento ágil y desafíos que requieren habilidades físicas o mentales rápidas.
+                    <LineBreak/>
+                    Dentro del género de acción, existen numerosos subgéneros, como los shooters en primera persona (FPS), los shooters en tercera persona (TPS), los juegos de lucha, los juegos de plataformas, los juegos de hack and slash, los juegos de aventuras de acción, entre otros.
+                </Paragraph>
+                <BlockUIContainer>
+                    <Border BorderThickness="0,1,0,0" BorderBrush="Black"/>
+                </BlockUIContainer>
+                <List MarkerStyle="Circle">
+                    <ListItem>
+                        <Paragraph>
+                            Shooters en primera persona (FPS): "Call of Duty", "Battlefield", "Overwatch".
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Shooters en tercera persona (TPS): "Gears of War", "Uncharted", "The Division".
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Juegos de lucha: "Street Fighter", "Mortal Kombat", "Super Smash Bros".
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Juegos de plataformas: "Super Mario", "Sonic the Hedgehog", "Celeste".
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Juegos de hack and slash: "Devil May Cry", "Bayonetta", "God of War".
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Juegos de aventuras de acción: "Tomb Raider", "Assassin's Creed", "Metal Gear Solid".
+                        </Paragraph>
+                    </ListItem>
+                </List>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <Image Source="pack://application:,,,/Images/accion.png"/>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <Span Style="{StaticResource Estilo4}">Algunos ejemplos de juegos nombrados anteriormente:</Span>
+                </Paragraph>
+                <List MarkerStyle="Square">
+                    <ListItem>
+                        <Section>
+                            <Paragraph>
+                                <Floater HorizontalAlignment="Right" Width="100">
+                                    <BlockUIContainer>
+                                        <Image Source="/Images/gt5logo.png"/>
+                                    </BlockUIContainer>
+                                </Floater>
+                                Grand Theft Auto V (GTA V): Desarrollado por Rockstar Games, es un juego de mundo abierto que combina acción, aventura y elementos de conducción. Los jugadores pueden explorar la vasta ciudad de Los Santos mientras realizan misiones, participan en actividades delictivas y disfrutan de la libertad de hacer lo que quieran en el mundo del juego.
+                            </Paragraph>
+                        </Section>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Uncharted 4: A Thief's End: Desarrollado por Naughty Dog, es una aventura de acción que sigue al cazador de tesoros Nathan Drake en una búsqueda llena de acción, intriga y peligros. Ofrece una jugabilidad emocionante, secuencias cinematográficas impresionantes y una narrativa cautivadora..
+                        </Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            The Last of Us Part II: También desarrollado por Naughty Dog, es un juego de acción y supervivencia que continúa la historia del primer juego. Ofrece una experiencia inmersiva con una narrativa emocional, combates intensos y una atmósfera postapocalíptica convincente.
+                        </Paragraph>
+                    </ListItem>
+                </List>
+                <Paragraph>
+                    <Hyperlink NavigateUri="https://es.wikipedia.org/wiki/Videojuego_de_acci%C3%B3n" RequestNavigate="Hyperlink_RequestNavigate">Más información...</Hyperlink>
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentReader>
+    </Grid>
+</Window>

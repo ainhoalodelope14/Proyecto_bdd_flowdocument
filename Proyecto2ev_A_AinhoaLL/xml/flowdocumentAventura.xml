@@ -1,0 +1,135 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FlowDocument.Resources>
+        <Style x:Key="Estilo1" TargetType="Span">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style x:Key="Estilo2" TargetType="Paragraph">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="Estilo3" TargetType="Span">
+            <Setter Property="Foreground" Value="Red"/>
+        </Style>
+        <Style x:Key="Estilo4" TargetType="Span">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="Estilo5" TargetType="Span">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="Estilo6" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </FlowDocument.Resources>
+    <Paragraph Style="{StaticResource Estilo2}">
+        <Span Style="{StaticResource Estilo1}">
+            <Span Style="{StaticResource Estilo3}">
+                Videojuegos de Aventura
+            </Span>
+        </Span>
+        <LineBreak></LineBreak>
+        <Span Style="{StaticResource Estilo4}">¿Sobre que tratan?</Span>
+    </Paragraph>
+    <Paragraph>
+        Los juegos de aventura son un género de videojuegos que se centra en la exploración, la resolución de acertijos y la narrativa.
+        Por lo general, implican que el jugador controle a un personaje que viaja a través de un mundo virtual, interactúa con personajes y objetos, y avanza en una historia.
+    </Paragraph>
+    <Paragraph>
+        <InlineUIContainer>
+            <Image Source="Images/aventura.jpg" Stretch="Uniform" Width="170" />
+        </InlineUIContainer>
+        A diferencia de muchos otros géneros de videojuegos, el enfoque en una historia de los géneros de aventura permite tomar prestados elementos de otros medios eminentemente narrativos, como la literatura y las películas.
+    </Paragraph>
+    <Paragraph>
+        Los videojuegos de aventura abarcan una amplia variedad de géneros literarios, incluyendo fantasía, ciencia ficción, misterio, terror, detectivesca y comedia.
+    </Paragraph>
+    <Paragraph>
+        <Figure HorizontalAnchor="PageCenter" VerticalAnchor="PageBottom" Width="130" Height="120">
+            <BlockUIContainer>
+                <Image Source="/Images/iconoaventura.png" Height="150" Width="100"/>
+            </BlockUIContainer>
+        </Figure>
+    </Paragraph>
+    <List>
+        <ListItem>
+            <Paragraph>
+                <Bold>Narrativa:</Bold> La narrativa es un aspecto fundamental de los juegos de aventura. Muchos de ellos presentan historias ricas y complejas, a menudo con giros inesperados y personajes memorables. Los jugadores suelen tomar decisiones que afectan el curso de la historia y el destino de los personajes.
+            </Paragraph>
+        </ListItem>
+        <ListItem>
+            <Paragraph>
+                <Bold>Exploración:</Bold> La exploración del entorno es otro elemento clave en los juegos de aventura. Los jugadores suelen recorrer escenarios detallados y descubrir nuevos lugares, objetos y personajes a medida que avanzan en la historia.
+            </Paragraph>
+        </ListItem>
+        <ListItem>
+            <Paragraph>
+                <Bold>Resolución de acertijos:</Bold> Los juegos de aventura a menudo presentan desafíos de resolución de acertijos que los jugadores deben superar para avanzar en el juego. Estos acertijos pueden variar en complejidad, desde simples hasta muy elaborados, y a menudo requieren pensamiento lógico y creatividad por parte del jugador.
+            </Paragraph>
+        </ListItem>
+        <ListItem>
+            <Paragraph>
+                <Bold>Subgéneros:</Bold> Dentro del género de aventura, hay varios subgéneros, como la aventura gráfica, el juego de rol de acción y la aventura de mundo abierto. Cada subgénero tiene sus propias características distintivas y estilos de juego.
+            </Paragraph>
+        </ListItem>
+    </List>
+    <Table  CellSpacing="0">
+        <Table.Columns>
+            <TableColumn Width="150"/>
+            <TableColumn Width="230"/>
+            <TableColumn Width="120"/>
+        </Table.Columns>
+        <TableRowGroup>
+            <TableRow>
+                <TableCell>
+                    <Paragraph FontWeight="Bold"  Background="Gainsboro" FontSize="15">Nombre del Juego</Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph FontWeight="Bold"  Background="Gainsboro" FontSize="15">Introducción</Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph FontWeight="Bold"  Background="Gainsboro" FontSize="15">Lanzamiento</Paragraph>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>
+                    <Paragraph>The Legend of Zelda: Ocarina of Time</Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph Style="{StaticResource Estilo6}">
+                        Juego de aventura y acción desarrollado por Nintendo. Es ampliamente considerado como uno de los mejores juegos de todos los tiempos debido a su jugabilidad innovadora, su mundo vasto y envolvente, y su narrativa emocionante.
+                    </Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph>1998</Paragraph>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>
+                    <Paragraph>Uncharted 2: Among Thieves</Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph  Style="{StaticResource Estilo6}">
+                        Juego de acción y aventuras desarrollado por Naughty Dog. Sigue las aventuras del cazador de tesoros Nathan Drake en su búsqueda de la legendaria ciudad de Shambhala, mientras se enfrenta a enemigos y resuelve acertijos.
+                    </Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph>2009</Paragraph>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell>
+                    <Paragraph>Life is Strange</Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph  Style="{StaticResource Estilo6}">
+                        Juego de aventura narrativo desarrollado por Dontnod Entertainment. La historia sigue a Max Caulfield, una estudiante de fotografía que descubre que tiene la capacidad de rebobinar el tiempo, y explora temas de amistad, amor y consecuencias de las decisiones.
+                    </Paragraph>
+                </TableCell>
+                <TableCell>
+                    <Paragraph>2015</Paragraph>
+                </TableCell>
+            </TableRow>
+        </TableRowGroup>
+    </Table>
+    <Paragraph>
+        <Hyperlink NavigateUri="https://es.wikipedia.org/wiki/Videojuego_de_aventura">Más información...</Hyperlink>
+    </Paragraph>
+</FlowDocument>

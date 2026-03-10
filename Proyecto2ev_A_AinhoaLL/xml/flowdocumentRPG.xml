@@ -1,0 +1,68 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FlowDocument.Resources>
+        <Style x:Key="Estilo1" TargetType="Span">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style x:Key="Estilo2" TargetType="Paragraph">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="Estilo3" TargetType="Span">
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>
+        <Style x:Key="Estilo4" TargetType="Span">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="Estilo5" TargetType="Span">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="Estilo6" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style x:Key="Estilo7" TargetType="Paragraph">
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style>
+        <!-- Estilo para el Floater -->
+        <Style x:Key="FloaterStyle" TargetType="Floater">
+            <Setter Property="Background" Value="LightGreen"/>
+        </Style>
+
+        <!-- Estilo para el TextBlock dentro del Floater -->
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Green"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </FlowDocument.Resources>
+    <Paragraph Style="{StaticResource Estilo2}">
+        <Span Style="{StaticResource Estilo1}">
+            <Span Style="{StaticResource Estilo3}">Videojuegos de RPG</Span>
+        </Span>
+        <LineBreak/>
+        <Span Style="{StaticResource Estilo4}">¿Sobre que tratan?</Span>
+    </Paragraph>
+    <Paragraph>Los juegos de rol (RPG, por sus siglas en inglés Role-Playing Games) son un género de videojuegos que se caracterizan por permitir a los jugadores asumir roles ficticios y participar en historias y aventuras dentro de mundos virtuales.
+        <Floater Width="200" HorizontalAlignment="Right" Style="{StaticResource FloaterStyle}">
+            <BlockUIContainer>
+                <TextBlock FontWeight="Light" FontSize="10" TextAlignment="Left" Height="115" TextWrapping="Wrap" Style="{StaticResource TextBlockStyle}">
+                Algunos ejemplos populares pueden ser la serie Final Fantasy, The Elder Scrolls V: Skyrim, The Witcher 3: Wild Hunt, Dark Souls, Mass Effect, Pokémon, entre otros.
+                <LineBreak/>
+                Estos juegos ofrecen experiencias variadas que van desde la fantasía épica hasta la ciencia ficción futurista, y son aclamados por su profundidad y jugabilidad.
+                </TextBlock>
+            </BlockUIContainer>
+        </Floater>
+    </Paragraph>
+    <Paragraph>
+        Los juegos de rol suelen incluir elementos como la progresión del personaje, donde los jugadores mejoran las habilidades y atributos de su personaje a medida que avanzan en el juego. También pueden incluir árboles de habilidades, equipos y objetos para personalizar a los personajes, y combates estratégicos.
+        Los RPG suelen destacar por tener una narrativa rica y profunda. Los jugadores pueden explorar mundos vastos y descubrir historias complejas llenas de personajes memorables, misiones emocionantes y giros inesperados.
+    </Paragraph>
+    <Paragraph  Style="{StaticResource Estilo7}">
+        <Italic>Exploracion y Personalización de personaje</Italic>
+    </Paragraph>
+    <Paragraph> La exploración es una parte importante de muchos juegos de rol. Los jugadores pueden recorrer paisajes diversos, desde bosques encantados hasta ciudades futuristas, descubriendo secretos, misiones secundarias y lugares ocultos.</Paragraph>
+    <Paragraph>
+        <Image Source="/Images/rpg.jpg" Height="230"/>
+    </Paragraph>
+    <Paragraph>Los RPG a menudo permiten a los jugadores personalizar a sus personajes de diversas maneras. Esto puede incluir la selección de habilidades, atributos, apariencia física, equipos y decisiones que afectan la historia.</Paragraph>
+<Paragraph>
+    <Hyperlink NavigateUri="https://es.wikipedia.org/wiki/Videojuego_de_rol">Más información...</Hyperlink>
+</Paragraph>
+</FlowDocument>
